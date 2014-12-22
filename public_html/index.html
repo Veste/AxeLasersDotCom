@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html ng-app="phonecatApp" ng-controller="PhoneListController">
+<head>
+  <title ng-bind-template="Google Phone Gallery: {{query}}">Google Phone Gallery</title>
+  <!--<link rel="stylesheet" href="foundation.min.css">-->
+
+  <!-- Bootstrap CSS classes and stuff -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+
+  <script src="angular.min.js"></script>
+  <script src="js/controllers.js"></script>
+</head>
+
+<body>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-2">
+        <!-- Sidebar -->
+
+        Search: <input ng-model="query">
+      </div>
+
+
+      <div class="col-md-10">
+        <!-- Body -->
+        <h1>Hello, {{name}}!</h1>
+
+        <h3>There are {{phones.length}} phones.</h3>
+
+        <ul class="phones">
+          <li ng-repeat="phone in phones | filter:{name: query}">
+            <span>{{phone.name}}</span>
+            <p>{{phone.snippet}}</p>
+          </li>
+        </ul>
+
+        <h3>Here's a table for some reason</h3>
+        <table>
+          <tr>
+            <th>row number</th>
+            <th ng-repeat="i in [1, 2, 3, 4, 5, 6, 7]">
+              row number plus {{i}}
+            </th>
+          </tr>
+
+          <tr ng-repeat="i in [0, 1, 2, 3, 4, 5, 6, 7]">
+            <td ng-repeat="j in [0, 1, 2, 3, 4, 5, 6, 7]">
+              {{i+j}}
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
